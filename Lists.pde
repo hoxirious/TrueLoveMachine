@@ -9,7 +9,7 @@ class Lists
     insertString(sValue);
   }
 
-  Lists(int [] xValue, int [] yValue) {
+  Lists(ArrayList <Integer>xValue, ArrayList <Integer> yValue) {
     insertInteger(xValue, yValue);
   }
 
@@ -21,10 +21,10 @@ class Lists
     }
   }
 
-  void insertInteger( int [] xValue, int [] yValue) {
-    for (int i =0; i<xValue.length; i++) {
-      this.xValue.add(xValue[i]);
-      this.yValue.add(yValue[i]);
+  void insertInteger(ArrayList <Integer>xValue, ArrayList <Integer> yValue) {
+    for (int i =0; i<xValue.size(); i++) {
+      this.xValue.add(xValue.get(i));
+      this.yValue.add(yValue.get(i));
     }
   }
   void clearString()

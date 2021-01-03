@@ -1,32 +1,54 @@
 class Drawing
 {
-  float fx=0;
-  float fy=0; 
-  
-  Drawing(float fx, float fy)
+  boolean active = false;
+  boolean firstAttempt = true; 
+  ArrayList <Integer> xValue = new ArrayList ();
+  ArrayList <Integer> yValue = new ArrayList ();
+  Drawing()
+  {}
+
+  void pencil() 
   {
-    this.fx = fx;
-    this.fy = fy; 
+    if (mousePressed == true) {
+      line(mouseX, mouseY, pmouseX, pmouseY);
+      xValue.add(mouseX);
+      yValue.add(mouseY); 
+      println("xmouse is: " + mouseX);
+      println("ymouse is: " + mouseY);
+    }
+  }
+  void eraser(){}
+  
+  void saveDataPoint()
+  {
+    if(active){
+        saveDataPoints = new Lists(xValue,yValue);
+    }    
   }
   
-
-
-
-void DrawBF()
-{
-  if (mousePressed)
+  void reset()
   {
-    fx = mouseX;
-    fy = mouseY;   
-    fill(0);
-    circle(fx, fy, 2);
+    active = false; 
+    xValue.clear(); 
+    yValue.clear(); 
   }
-}
-
-
-void mouseDragged()
-{
-  fx = mouseX;
-  fy = mouseY;
-}
+  
+  void mouseClicked()
+  {
+    if(active){
+      if(bBack.hover()){
+        showSteps = true;
+        showDrawing = false;
+        saveDataPoint(); 
+        reset();
+      }
+    }
+  }
+  void mouseDragged()
+  {
+    if(active){
+        stroke(0);
+      pencil();
+    }
+  }
 }

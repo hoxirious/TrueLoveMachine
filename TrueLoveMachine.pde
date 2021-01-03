@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 //Question question = new Question[2]; 
-String [] namePrompts = {"Enter your name: ", "Enter your love's name"}; 
+String [] homePrompts = {"Enter your name: ", "Enter your love's name"}; 
 String [] askingPrompts = {"What is his favorite food?", "What is his nickname?", "How many Apple devices does he have?"};
 
 
@@ -27,7 +27,8 @@ boolean showDrawing = false;
 
 Question [] question= new Question[2]; 
 Lists saveAnswers; 
-Lists saveDataPoint;
+Lists saveDataPoints;
+Drawing newDrawing = new Drawing(); 
 
 Button bPlay = new Button("Play!", 180, 300, 50, 20, 10);
 Button bHome = new Button("Home", 100, 350, 50, 20, 10);
@@ -41,34 +42,30 @@ void setup() {
   size(400, 400);
   background(#002D26);
 
-  question[0] = new Question (2, namePrompts, 1);
+  question[0] = new Question (2, homePrompts, 1);
   question[1] = new Question (3, askingPrompts, 2);
 }
 void draw()
 {
-  background(255);
-  if (home)
+
+  if (home) {
     home();
-
-
-  else if (showSteps)
+  } else if (showSteps) {
     steps();
-
-  else if (showQuestion)
-    questions(); 
-
-  else if (showDrawing)
+  } else if (showQuestion) {
+    questions();
+  } else if (showDrawing) {
     drawing();
+  }
 }
 
 void mousePressed()
 {
   if (home) {
     question[0].mouseClicked();
-    
   } else if (showSteps) {
     input = false; 
-    
+
     if (bQuestion.hover()) {
       input = true; 
       showSteps = false; 
@@ -76,24 +73,23 @@ void mousePressed()
       saveAnswers.clearString();
       println(saveAnswers.sValue);
       println();
-      
     } else if (bDrawing.hover())
     {
+      background(255);
       showSteps = false;
       showDrawing = true;
-      
     } else if (bHome.hover()) {
       showSteps = false; 
       home = true;
       saveAnswers.clearString();
       println(saveAnswers.sValue);
       println();
-      
-    } 
+    }
   } else if (showQuestion) {
     question[1].mouseClicked();
   } else if (showDrawing)
   {
+    newDrawing.mouseClicked();
   }
 }
 
@@ -104,9 +100,13 @@ void keyPressed() {
     question[i].keyPressed();
   }
 }
+void mouseDragged() {
+  newDrawing.mouseDragged();
+}
 
 void home()
 {
+  background(255);
   fill(#A01A21);
   textSize(25); 
   textAlign(CENTER, TOP);
@@ -136,6 +136,7 @@ void superReset()
 
 void steps()
 {
+  background(255);
   fill(#A01A21);
   textSize(25); 
   textAlign(CENTER, TOP);
@@ -149,6 +150,7 @@ void steps()
 
 void questions()
 {  
+  background(255);
   fill(#A01A21); 
   textSize(20); 
   textAlign(CENTER, TOP); 
@@ -159,6 +161,13 @@ void questions()
   bBack.update();
 }
 
+void drawing() 
+{
+  textSize(20); 
+  textAlign(CENTER, TOP);
+  newDrawing.active = true;
+  bBack.update();
+}
 
 String questions(String[] answers)
 {  
@@ -173,8 +182,4 @@ String questions(String[] answers)
   if (counter==answers.length)
     return message1;
   else return message2;
-}
-
-void drawing() 
-{
 }
