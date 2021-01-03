@@ -13,6 +13,7 @@ class Output
     text(message, 200, 150);
       if(message.equals("YOU ARE MY TRUTH LOVE")) result = true; 
       else result = false; 
+    println("result is: " +result);
     bBack.update();
   }
 

@@ -27,6 +27,13 @@ class Lists
       this.yValue.add(yValue.get(i));
     }
   }
+  
+  void printOut()
+  {
+    println("Answers is:" + sValue);
+    println("mouseX is:" + xValue);
+    println("mouseY is:" + yValue);
+  }
   void clearString()
   {
     if (home)
