@@ -26,6 +26,9 @@ class Result
       if (bHome.hover()) {
         showResult = false;
         superReset();
+        println("reset");
+        saveDataPoints.clearInteger();
+        result = false;
         home =true;
       }
     }

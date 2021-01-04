@@ -11,11 +11,11 @@ class Output
   {
     textSize(25);
     textAlign(CENTER, CENTER);
-
     fill(#C13E66);
     shadowText(message, width/2, height/2-40);
     fill(#F290AC);
     text(message, width/2, height/2-40);
+
     if (message.equals("SCORE! 3/3")) {
       result = true;
       fill(#C13E66);
@@ -38,7 +38,10 @@ class Output
     {
       superReset();
       showSteps = true;
-      println("reset");
+    } else if (bHome.hover())
+    {
+      superReset();
+      home = true;
     }
   }
 }

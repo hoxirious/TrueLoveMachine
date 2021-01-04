@@ -25,6 +25,7 @@ class Input
       fill(255);
       text("Let's do some writing!", width/2, height/5);
     }
+    
     // showing input page
     for (int i = 0; i < box.length; i++) {
       box[i].update();
@@ -92,13 +93,11 @@ class Input
     if (bBack.hover()) {
       superReset(); 
       showSteps = true;
-      println("back");
     }
     //otherwise pass event down to textfields
     else {
       for (int i = 0; i < box.length; i++) {
         box[i].mouseClicked();
-        println("pass");
       }
     }
   }

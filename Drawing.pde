@@ -23,22 +23,18 @@ class Drawing
       line(mouseX, mouseY, pmouseX, pmouseY);
       xValue.add(pmouseX);
       yValue.add(pmouseY);
-      println("mouse is pressed");
     }
   }
   void eraser() {
     int index;
-
     if (mousePressed&&inFrame()) {
       line(mouseX, mouseY, pmouseX, pmouseY);
       try {
         index =searchIndex(pmouseX, pmouseY);
         xValue.remove(index);
         yValue.remove(index);
-        println("Erased");
       }
       catch(Exception e) {
-        println("Erase outside pencil area");
       }
     }
   }
@@ -69,7 +65,7 @@ class Drawing
         image(img, 0, 0, width, height);
         stroke(#002538);
         strokeWeight(3);
-        rect(80, 80, 180, 180);
+        rect(80, 80, 180, 180);        
         firstAttempt = false;
       }
     }
@@ -88,11 +84,18 @@ class Drawing
       if (bBack.hover()) {
         showSteps = true;
         showDrawing = false;
-        saveDataPoint(); 
+        firstAttempt =true;
+        saveDataPoint();
         reset();
+        
       }
       if (bPencil.hover()) {
-        pencil = !pencil;
+        pencil = true;
+        eraser = false;
+      }
+      else if(bEraser.hover()){
+        pencil = false;
+        eraser = true;
       }
     }
   }
@@ -102,7 +105,7 @@ class Drawing
       if (pencil) {
         stroke(0);
         pencil();
-      } else if (!pencil) {
+      } else if (eraser) {
         stroke(255);
         eraser();
       }

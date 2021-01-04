@@ -8,11 +8,8 @@ class Button
   float fwidth = 100;
   float fheight = 100; 
   float fradii = 0; 
-  //color inActive = color(166, 129, 38);
-  //color active = color(198, 152, 42);
-  //color hover = color(227, 173, 48);
   color inActive = color(229, 114, 146);
-  color active = color(198, 152, 42);
+  color active = color(255, 139, 171);
   color hover = color(255, 139, 171);
   color labelColor = 255;
 

@@ -1,8 +1,8 @@
 class Lists
 {
-  ArrayList<String> sValue = new ArrayList(); 
-  ArrayList<Integer> xValue = new ArrayList(); 
-  ArrayList<Integer> yValue = new ArrayList(); 
+  ArrayList<String> sValue = new ArrayList<String>(); 
+  ArrayList<Integer> xValue = new ArrayList<Integer>(); 
+  ArrayList<Integer> yValue = new ArrayList<Integer>(); 
 
 
   Lists(String [] sValue) {
@@ -28,14 +28,9 @@ class Lists
     }
   }
 
-  void printOut()
-  {
-    println("Answers is:" + sValue);
-    println("mouseX is:" + xValue);
-    println("mouseY is:" + yValue);
-  }
   void clearString()
   {
+    try{
     if (home)
       sValue.clear();
     else {
@@ -44,5 +39,16 @@ class Lists
         sValue.remove(i);
       i++;
     }
+    }
+    catch(Exception e){}
+  }
+  
+    void clearInteger()
+  {   
+    try{
+      xValue.clear();
+      yValue.clear();
+    }
+    catch(Exception e){}
   }
 }

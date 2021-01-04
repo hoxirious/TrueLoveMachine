@@ -55,14 +55,11 @@ class Question
           superReset(); 
           home = true;
           saveAnswers.clearString();
-          println(saveAnswers.sValue);
-          println();
+
           // compare answer key if Check button is clicked
         } else if (bCheck.hover()) {
           check();
           saveAnswers.insertString(answers);
-          println(saveAnswers.sValue);
-          println();
 
           //If Play button is activated, check valid input. Open Steps page if true
         } else if (bPlay.hover())
@@ -72,8 +69,6 @@ class Question
             home = false; 
             showSteps = true;
             saveAnswers= new Lists (answers);
-            println(saveAnswers.sValue);
-            println();
           }
 
           //pass event to Input

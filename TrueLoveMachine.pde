@@ -4,12 +4,9 @@ import java.util.regex.Pattern;
 import java.util.ArrayList;
 
 
-//Question question = new Question[2]; 
 String [] homePrompts = {"Enter your name: ", "Enter your love's name"}; 
 String [] askingPrompts = {"What is his favorite food?", "What is his nickname?", "How many Apple devices does he have?"};
 
-//float x, y;
-//Snowflake[] snowflakes = new Snowflake[50];
 
 boolean home = true; 
 boolean showSteps = false;
@@ -21,7 +18,8 @@ boolean result = false;
 boolean showResult = false; 
 boolean showQuestion = false; 
 boolean showDrawing = false; 
-boolean pencil = true; 
+boolean pencil = false; 
+boolean eraser = false; 
 
 Question [] question= new Question[2]; 
 Lists saveAnswers; 
@@ -37,11 +35,10 @@ Button bQuestion = new Button ("Personal Challenge", 125, 150, 150, 20, 10);
 Button bDrawing = new Button ("Art Challenge", 125, 200, 150, 20, 10);
 Button bResult = new Button("See result!", 125, 250, 150, 20, 10);
 Button bPencil = new Button ("Pencil", 300, 150, 55, 20, 10);
+Button bEraser = new Button ("Eraser", 300, 190, 55, 20, 10);
 
 void setup() {
   size(400, 400);
-  background(#002D26);
-
   question[0] = new Question (2, homePrompts, 1);
   question[1] = new Question (3, askingPrompts, 2);
 }
@@ -135,15 +132,16 @@ void home()
 
 void superReset()
 {
+  saveAnswers.clearString();
   question[0].reset();
   question[1].reset(); 
   home = false; 
-  showSteps = false;
   input = true;
-  output = false; 
+  output = false;
+  firstAttempt = true;
+  showSteps = false;
   showQuestion = false; 
   showDrawing = false;
-  println("reset");
 }
 
 void steps()
@@ -170,7 +168,6 @@ void steps()
 
 void questions()
 {  
-
   PImage img;
   img = loadImage("background_skyblue.jpg");
   image(img, 0, 0, width, height);
@@ -179,8 +176,8 @@ void questions()
   textAlign(CENTER, TOP); 
 
   question[1].active=true;
-  question[1].update(); 
-  bHome.update(); 
+  question[1].update();
+  bHome.update();
   bBack.update();
 }
 
@@ -193,6 +190,7 @@ void drawing()
   newDrawing.update();
   bBack.update();
   bPencil.update();
+  bEraser.update();
 }
 
 void result()
@@ -206,6 +204,7 @@ void result()
   shadowText("RESULT!", width/2, height/5);
   fill(255);
   text("RESULT!", width/2, height/5);
+  rect(110, 170, 180, 170);
 
   finalResult.active = true;
   finalResult.update(); 
