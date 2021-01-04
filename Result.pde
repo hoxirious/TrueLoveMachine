@@ -13,12 +13,9 @@ class Result
           point(saveDataPoints.xValue.get(i)+35, saveDataPoints.yValue.get(i)+80);
         }
         fill(#C13E66);
-          for (int x = -1; x < 2; x++) {
-    text(saveAnswers.sValue.get(1) +" is "+ saveAnswers.sValue.get(0)+"'s true love", width/2+x, height/3);
-    text(saveAnswers.sValue.get(1) +" is "+ saveAnswers.sValue.get(0)+"'s true love", width/2, height/3+x);
-  }
+        shadowText(saveAnswers.sValue.get(1) +" is "+ saveAnswers.sValue.get(0)+"'s true love", width/2, height/3);
         fill(#F290AC);
-        text(saveAnswers.sValue.get(1) +" is "+ saveAnswers.sValue.get(0)+"'s true love",width/2, height/3);
+        text(saveAnswers.sValue.get(1) +" is "+ saveAnswers.sValue.get(0)+"'s true love", width/2, height/3);
       }
     }
   }

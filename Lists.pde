@@ -27,7 +27,7 @@ class Lists
       this.yValue.add(yValue.get(i));
     }
   }
-  
+
   void printOut()
   {
     println("Answers is:" + sValue);

@@ -3,31 +3,28 @@ class Input
   TextField [] box;
   int currentTextField = 0; 
   String [] inputPrompts;  
-  
+
   Input(int numsInput, String [] inputPrompts)
   {
-    
+
     this.inputPrompts = inputPrompts; 
     box = new TextField[numsInput]; 
-    
-    for(int i =0; i<numsInput; i++)
-    {
-     box[i] = new TextField(100,170+50*i,200);  
-    }
-    
-    if(numsInput>0)  box[0].state = true; 
-  }
-  
-    void update() {
 
-      if(box.length ==3){
-          for(int x = -1; x < 2; x++){
-    text("Let's do some writing!", width/2+x,height/5);
-    text("Let's do some writing!", width/2,height/5+x);  
-}  
-        fill(255);
+    for (int i =0; i<numsInput; i++)
+    {
+      box[i] = new TextField(100, 170+50*i, 200);
+    }
+
+    if (numsInput>0)  box[0].state = true;
+  }
+
+  void update() {
+
+    if (box.length ==3) {
+      shadowText("Let's do some writing!", width/2, height/5);
+      fill(255);
       text("Let's do some writing!", width/2, height/5);
-      }
+    }
     // showing input page
     for (int i = 0; i < box.length; i++) {
       box[i].update();
@@ -37,21 +34,21 @@ class Input
       text(inputPrompts[i], 100, 150 + 50 * i);
       text(inputPrompts[i], 100, 150 + 50 * i);
     }
-    
+
     //updating all text fields
     for (int i = 0; i < box.length; i++) {
       box[i].update();
     }
   }
-  
+
   void keyPressed()
   {
-    if(key ==TAB || keyCode == DOWN)
+    if (key ==TAB || keyCode == DOWN)
     {
       //deactivate the current field 
       box[currentTextField].state = false; 
-      
-       //try going to the next element and activating it
+
+      //try going to the next element and activating it
       try 
       {
         box[currentTextField + 1].state = true;
@@ -89,7 +86,7 @@ class Input
       }
     }
   }
-   void mouseClicked() {
+  void mouseClicked() {
 
     //going back to home page ; 
     if (bBack.hover()) {

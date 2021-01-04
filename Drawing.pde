@@ -9,6 +9,7 @@ class Drawing
   {
   }
 
+
   boolean inFrame()
   {
     if (mouseX >= 80 && mouseX <= 260 && mouseY >= 80 && mouseY <= 260)
@@ -61,8 +62,17 @@ class Drawing
 
   void update()
   {
-
-    firstAttempt = false;
+    if (active) {
+      if (firstAttempt) {
+        PImage img;
+        img = loadImage("background_skyblue.jpg");
+        image(img, 0, 0, width, height);
+        stroke(#002538);
+        strokeWeight(3);
+        rect(80, 80, 180, 180);
+        firstAttempt = false;
+      }
+    }
   }
 
   void reset()

@@ -63,7 +63,7 @@ class Question
           saveAnswers.insertString(answers);
           println(saveAnswers.sValue);
           println();
-            
+
           //If Play button is activated, check valid input. Open Steps page if true
         } else if (bPlay.hover())
         {
@@ -73,12 +73,12 @@ class Question
             showSteps = true;
             saveAnswers= new Lists (answers);
             println(saveAnswers.sValue);
-          println();
+            println();
           }
-          
-          //pass event to Input          
+
+          //pass event to Input
         } else myInput.mouseClicked();
-        
+
         //pass event to Output
       } else if (output) {
         myOutput.mouseClicked();

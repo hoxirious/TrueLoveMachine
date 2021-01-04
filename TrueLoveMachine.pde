@@ -17,7 +17,7 @@ boolean check = false;
 boolean input = false; 
 boolean output = false; 
 boolean firstAttempt = true; 
-boolean result = true;
+boolean result = false;
 boolean showResult = false; 
 boolean showQuestion = false; 
 boolean showDrawing = false; 
@@ -120,10 +120,7 @@ void home()
   textSize(30);
   textAlign(CENTER, TOP);
   fill(#ee9c86);
-  for (int x = -1; x < 2; x++) {
-    text("TRUE LOVE MACHINE", width/2+x, height/5);
-    text("TRUE LOVE MACHINE", width/2, height/5+x);
-  }
+  shadowText("TRUE LOVE MACHINE", width/2, height/5);
   fill(255);
 
   text("TRUE LOVE MACHINE", width/2, height/5);
@@ -158,10 +155,7 @@ void steps()
   textSize(25); 
   textAlign(CENTER, TOP);
   fill(#ee9c86);
-  for (int x = -1; x < 2; x++) {
-    text("TRUE LOVE MACHINE", width/2+x, height/5);
-    text("TRUE LOVE MACHINE", width/2, height/5+x);
-  }
+  shadowText("TRUE LOVE MACHINE", width/2, height/5);
   fill(255);
 
   text("TRUE LOVE MACHINE", width/2, height/5);
@@ -192,18 +186,11 @@ void questions()
 
 void drawing() 
 {
-
-  PImage img;
-  img = loadImage("background_skyblue.jpg");
-  image(img, 0, 0, width, height);
   textSize(20); 
-  textAlign(CENTER, TOP);
-  stroke(#002538);
-  strokeWeight(3);
-  noFill();
-  rect(80, 80, 180, 180);
+  textAlign(CENTER, TOP);  
 
   newDrawing.active = true;
+  newDrawing.update();
   bBack.update();
   bPencil.update();
 }
@@ -216,11 +203,8 @@ void result()
   textSize(25); 
   textAlign(CENTER, TOP);
   fill(#ee9c86);
-  for (int x = -1; x < 2; x++) {
-    text("RESULT!", width/2+x, height/5);
-    text("RESULT!", width/2, height/5+x);
-  }
-    fill(255);
+  shadowText("RESULT!", width/2, height/5);
+  fill(255);
   text("RESULT!", width/2, height/5);
 
   finalResult.active = true;
@@ -228,7 +212,12 @@ void result()
   bHome.update();
 }
 
-
+void shadowText(String message, int xPos, int yPos) { 
+  for (int x = -1; x < 2; x++) {
+    text(message, xPos+x, yPos);
+    text(message, xPos, yPos+x);
+  }
+}
 String questions(String[] answers)
 {  
 
