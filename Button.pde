@@ -8,10 +8,12 @@ class Button
   float fwidth = 100;
   float fheight = 100; 
   float fradii = 0; 
-
-  color inActive = color(166, 129, 38);
+  //color inActive = color(166, 129, 38);
+  //color active = color(198, 152, 42);
+  //color hover = color(227, 173, 48);
+  color inActive = color(229, 114, 146);
   color active = color(198, 152, 42);
-  color hover = color(227, 173, 48);
+  color hover = color(255,139, 171);
   color labelColor = 255;
 
   Button(String name, float fx, float fy, float fwidth, float fheight, float fradii)

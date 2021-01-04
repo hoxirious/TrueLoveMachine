@@ -6,12 +6,13 @@ class Drawing
   ArrayList <Integer> xValue = new ArrayList ();
   ArrayList <Integer> yValue = new ArrayList ();
   Drawing()
-  {}
+  {
+  }
 
   boolean inFrame()
   {
     if (mouseX >= 80 && mouseX <= 260 && mouseY >= 80 && mouseY <= 260)
-    return true; 
+      return true; 
     else return false;
   }
 
@@ -26,7 +27,7 @@ class Drawing
   }
   void eraser() {
     int index;
-    
+
     if (mousePressed&&inFrame()) {
       line(mouseX, mouseY, pmouseX, pmouseY);
       try {
@@ -58,6 +59,11 @@ class Drawing
     }
   }
 
+  void update()
+  {
+
+    firstAttempt = false;
+  }
 
   void reset()
   {
@@ -83,13 +89,13 @@ class Drawing
   void mouseDragged()
   {
     if (active) {
-        if (pencil) {
-          stroke(0);
-          pencil();
-        } else if (!pencil) {
-          stroke(255);
-          eraser();
-        }
+      if (pencil) {
+        stroke(0);
+        pencil();
+      } else if (!pencil) {
+        stroke(255);
+        eraser();
+      }
     }
   }
 }

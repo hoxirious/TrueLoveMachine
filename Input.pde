@@ -20,13 +20,21 @@ class Input
   
     void update() {
 
-      if(box.length ==3)
-      text("Let's do some writing, eh?", width/2, height/7);
+      if(box.length ==3){
+          for(int x = -1; x < 2; x++){
+    text("Let's do some writing!", width/2+x,height/5);
+    text("Let's do some writing!", width/2,height/5+x);  
+}  
+        fill(255);
+      text("Let's do some writing!", width/2, height/5);
+      }
     // showing input page
     for (int i = 0; i < box.length; i++) {
       box[i].update();
-      fill(0);
+      fill(255);
       textSize(13);
+      text(inputPrompts[i], 100, 150 + 50 * i);
+      text(inputPrompts[i], 100, 150 + 50 * i);
       text(inputPrompts[i], 100, 150 + 50 * i);
     }
     

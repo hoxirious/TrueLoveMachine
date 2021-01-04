@@ -7,7 +7,7 @@ import java.util.ArrayList;
 //Question question = new Question[2]; 
 String [] homePrompts = {"Enter your name: ", "Enter your love's name"}; 
 String [] askingPrompts = {"What is his favorite food?", "What is his nickname?", "How many Apple devices does he have?"};
- 
+
 //float x, y;
 //Snowflake[] snowflakes = new Snowflake[50];
 
@@ -16,6 +16,7 @@ boolean showSteps = false;
 boolean check = false; 
 boolean input = false; 
 boolean output = false; 
+boolean firstAttempt = true; 
 boolean result = true;
 boolean showResult = false; 
 boolean showQuestion = false; 
@@ -29,13 +30,13 @@ Drawing newDrawing = new Drawing();
 Result finalResult = new Result();
 
 Button bPlay = new Button("Play!", 180, 300, 50, 20, 10);
-Button bHome = new Button("Home", 100, 350, 50, 20, 10);
-Button bBack = new Button("Back", 300, 350, 50, 20, 10);
-Button bCheck = new Button("Let's check", 200, 350, 90, 20, 10);
-Button bResult = new Button("See result!", width, 300, 100, 20, 10);
-Button bQuestion = new Button ("Personal Challenge", width, 150, 150, 20, 10);
-Button bDrawing = new Button ("Art Challenge", width, 200, 150, 20, 10);
-Button bPencil = new Button ("Pencil", 300, 150, 40, 20, 10);
+Button bHome = new Button("Home", 175, 350, 50, 20, 10);
+Button bBack = new Button("Back", 250, 350, 50, 20, 10);
+Button bCheck = new Button("Check", 100, 350, 50, 20, 10);
+Button bQuestion = new Button ("Personal Challenge", 125, 150, 150, 20, 10);
+Button bDrawing = new Button ("Art Challenge", 125, 200, 150, 20, 10);
+Button bResult = new Button("See result!", 125, 250, 150, 20, 10);
+Button bPencil = new Button ("Pencil", 300, 150, 55, 20, 10);
 
 void setup() {
   size(400, 400);
@@ -107,19 +108,25 @@ void keyPressed() {
   }
 }
 void mouseDragged() {
-  
+
   newDrawing.mouseDragged();
 }
 
 void home()
-{
+{ 
   PImage img;
-  img = loadImage("background_sky.jpg");
-  image(img, 0, 0,width,height);
-  fill(#ffc305);
-  textSize(25); 
+  img = loadImage("background_skyblue.jpg");
+  image(img, 0, 0, width, height);
+  textSize(30);
   textAlign(CENTER, TOP);
-  text("Truth love machine", width/2, height/5);
+  fill(#ee9c86);
+  for (int x = -1; x < 2; x++) {
+    text("TRUE LOVE MACHINE", width/2+x, height/5);
+    text("TRUE LOVE MACHINE", width/2, height/5+x);
+  }
+  fill(255);
+
+  text("TRUE LOVE MACHINE", width/2, height/5);
 
   bPlay.update();
 
@@ -144,11 +151,22 @@ void superReset()
 
 void steps()
 {
-  background(255);
+  PImage img;
+  img = loadImage("background_skyblue.jpg");
+  image(img, 0, 0, width, height);
   fill(#A01A21);
   textSize(25); 
   textAlign(CENTER, TOP);
-  text("Truth love machine", width/2, height/6);
+  fill(#ee9c86);
+  for (int x = -1; x < 2; x++) {
+    text("TRUE LOVE MACHINE", width/2+x, height/5);
+    text("TRUE LOVE MACHINE", width/2, height/5+x);
+  }
+  fill(255);
+
+  text("TRUE LOVE MACHINE", width/2, height/5);
+
+
 
   bQuestion.update();
   bDrawing.update(); 
@@ -158,9 +176,12 @@ void steps()
 
 void questions()
 {  
-  background(255);
-  fill(#A01A21); 
-  textSize(20); 
+
+  PImage img;
+  img = loadImage("background_skyblue.jpg");
+  image(img, 0, 0, width, height);
+  fill(#ee9c86); 
+  textSize(25); 
   textAlign(CENTER, TOP); 
 
   question[1].active=true;
@@ -172,12 +193,16 @@ void questions()
 void drawing() 
 {
 
+  PImage img;
+  img = loadImage("background_skyblue.jpg");
+  image(img, 0, 0, width, height);
   textSize(20); 
   textAlign(CENTER, TOP);
   stroke(#002538);
   strokeWeight(3);
   noFill();
   rect(80, 80, 180, 180);
+
   newDrawing.active = true;
   bBack.update();
   bPencil.update();
@@ -185,11 +210,19 @@ void drawing()
 
 void result()
 {
-  background(255); 
-  fill(#A01A21); 
-  textSize(20); 
+  PImage img;
+  img = loadImage("background_skyblue.jpg");
+  image(img, 0, 0, width, height); 
+  textSize(25); 
   textAlign(CENTER, TOP);
-  text("RESULT!", width/2, height/7);
+  fill(#ee9c86);
+  for (int x = -1; x < 2; x++) {
+    text("RESULT!", width/2+x, height/5);
+    text("RESULT!", width/2, height/5+x);
+  }
+    fill(255);
+  text("RESULT!", width/2, height/5);
+
   finalResult.active = true;
   finalResult.update(); 
   bHome.update();
