@@ -7,7 +7,7 @@ import java.util.ArrayList;
 //Question question = new Question[2]; 
 String [] homePrompts = {"Enter your name: ", "Enter your love's name"}; 
 String [] askingPrompts = {"What is his favorite food?", "What is his nickname?", "How many Apple devices does he have?"};
-
+ 
 //float x, y;
 //Snowflake[] snowflakes = new Snowflake[50];
 
@@ -16,7 +16,7 @@ boolean showSteps = false;
 boolean check = false; 
 boolean input = false; 
 boolean output = false; 
-boolean result = false;
+boolean result = true;
 boolean showResult = false; 
 boolean showQuestion = false; 
 boolean showDrawing = false; 
@@ -95,7 +95,6 @@ void mousePressed()
   {
     newDrawing.mouseClicked();
   } else if (showResult) {
-    finalResult.active = true;
     finalResult.mouseClicked();
   }
 }
@@ -108,13 +107,16 @@ void keyPressed() {
   }
 }
 void mouseDragged() {
+  
   newDrawing.mouseDragged();
 }
 
 void home()
 {
-  background(255);
-  fill(#A01A21);
+  PImage img;
+  img = loadImage("background_sky.jpg");
+  image(img, 0, 0,width,height);
+  fill(#ffc305);
   textSize(25); 
   textAlign(CENTER, TOP);
   text("Truth love machine", width/2, height/5);
@@ -169,8 +171,13 @@ void questions()
 
 void drawing() 
 {
+
   textSize(20); 
   textAlign(CENTER, TOP);
+  stroke(#002538);
+  strokeWeight(3);
+  noFill();
+  rect(80, 80, 180, 180);
   newDrawing.active = true;
   bBack.update();
   bPencil.update();
@@ -183,6 +190,7 @@ void result()
   textSize(20); 
   textAlign(CENTER, TOP);
   text("RESULT!", width/2, height/7);
+  finalResult.active = true;
   finalResult.update(); 
   bHome.update();
 }
@@ -196,8 +204,8 @@ String questions(String[] answers)
   if (answers[1].equalsIgnoreCase("Bin")) counter++;
   if (answers[2].equalsIgnoreCase("THREE"))counter++;
 
-  String messageTrue = "YOU ARE MY TRUTH LOVE";
-  String messageFalse = "GOY XONG. YOU GOT " +counter+" out of " +answers.length +" CORRECT :(";
+  String messageTrue = "SCORE! 3/3";
+  String messageFalse = "GOY XONG :( "+counter+"/" +answers.length +" CORRECT.";
   if (counter==answers.length)
     return messageTrue;
   else return messageFalse;

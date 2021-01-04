@@ -70,10 +70,10 @@ class TextField
       rect(fx, fy, fwidth, fheight, 5);
       fill(#002538);
       text(value, fx + 5, fy + 1.5);
-      //covering overflow
-      fill(255);
-      noStroke();
-      rect(fx + fwidth + 1, fy, 400, fheight);
+      ////covering overflow
+      //fill(255);
+      //noStroke();
+      //rect(fx + fwidth + 1, fy, 400, fheight);
     } else 
     {
       fill(background);
@@ -81,10 +81,10 @@ class TextField
       rect(fx, fy, fwidth, fheight, 5);
       fill(#002538);
       text(value, fx + 5, fy + 1.5);
-      //covering overflow
-      fill(255);
-      noStroke();
-      rect(fx + fwidth + 1, fy, 400, fheight);
+      ////covering overflow
+      //fill(255);
+      //noStroke();
+      //rect(fx + fwidth + 1, fy, 400, fheight);
     }
   }
 }

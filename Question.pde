@@ -12,7 +12,7 @@ class Question
   Question(int numsInput, String [] inputPrompts, int questionpack )
   {
     this.questionpack = questionpack; 
-    this.answers= new String[numsInput]; 
+    this.answers = new String[numsInput]; 
     this.myInput = new Input(numsInput, inputPrompts); 
     this.myOutput = new Output();
   }

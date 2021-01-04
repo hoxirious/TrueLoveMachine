@@ -10,9 +10,10 @@ class Result
       if (result) {
         saveDataPoints.printOut(); 
         stroke(0);
-        for (int i = 1; i<saveDataPoints.xValue.size(); i++) {
-          line(saveDataPoints.xValue.get(i), saveDataPoints.yValue.get(i), saveDataPoints.xValue.get(i-1), saveDataPoints.yValue.get(i-1));
+        for (int i = 0; i<saveDataPoints.xValue.size(); i++) {
+          point(saveDataPoints.xValue.get(i), saveDataPoints.yValue.get(i)+50);
         }
+        text(saveAnswers.sValue.get(1) +" is "+ saveAnswers.sValue.get(0)+"'s true love",width/2, height/3);
       }
     }
   }

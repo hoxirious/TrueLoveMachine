@@ -11,9 +11,14 @@ class Output
     textSize(20);
     textAlign(CENTER,CENTER);
     text(message, 200, 150);
-      if(message.equals("YOU ARE MY TRUTH LOVE")) result = true; 
-      else result = false; 
-    println("result is: " +result);
+      if(message.equals("SCORE! 3/3")){
+        result = true;
+        text("Back and move to step 2", 200, 180);
+      }
+      else {
+      result = false;
+      text("Back and try again", 200, 180);
+      }
     bBack.update();
   }
 
